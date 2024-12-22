@@ -6,7 +6,7 @@ namespace PersonalDashboard
     {
         const string userName = "Amr";
         const string password = "admin";
-        bool isLoggedIn;
+        //bool isLoggedIn;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -16,7 +16,7 @@ namespace PersonalDashboard
         {
             if (userNameBox.Text == userName && passwordBox.Text == password)
             {
-                isLoggedIn = true;
+                //isLoggedIn = true;
                 // Store username in session
                 Session["Username"] = userName;
                 loginFeedbackMsg.Text = "";
@@ -25,7 +25,7 @@ namespace PersonalDashboard
             }
             else
             {
-                isLoggedIn = false;
+                //isLoggedIn = false;
                 loginFeedbackMsg.Text = "Invalid username or password!";
             }
         }
