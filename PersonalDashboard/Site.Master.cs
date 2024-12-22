@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace PersonalDashboard
 {
@@ -12,7 +11,22 @@ namespace PersonalDashboard
             {
                 LoginPage.Visible= false;
                 welcomeLabel.Text = "Welcome, " + Session["Username"].ToString();
+                welcomeLabel.Visible = true;
+                LogoutBtn.Visible = true;
             }
+            else
+            {
+                LoginPage.Visible = true;
+                welcomeLabel.Visible = false;
+                LogoutBtn.Visible = false;
+            }
+        }
+        protected void BtnLogout_Clicked(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+
+            Response.Redirect("Login.aspx");
         }
     }
 }

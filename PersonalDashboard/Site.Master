@@ -52,6 +52,7 @@
                         <li class="nav-item"><a id="LoginPage" class="nav-link" runat="server" href="~/Login">Login</a></li>
                     </ul>
                     <asp:Label ID="welcomeLabel" runat="server" CssClass="text-white"></asp:Label>
+                    <asp:button ID="LogoutBtn" ForeColor="CadetBlue"  BorderColor="Transparent" BackColor="Transparent" runat="server" onclick="BtnLogout_Clicked" text="(Logout)"/>
                 </div>
             </div>
         </nav>
