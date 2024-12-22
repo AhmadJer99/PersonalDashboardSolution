@@ -1,4 +1,5 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="PersonalDashboard.SiteMaster" %>
+﻿<%@  Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="PersonalDashboard.SiteMaster" %>
+<link href="~/StyleSheet1.css" rel="stylesheet" type="text/css" />
 
 <!DOCTYPE html>
 

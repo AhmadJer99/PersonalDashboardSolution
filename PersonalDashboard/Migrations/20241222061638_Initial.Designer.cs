@@ -10,8 +10,8 @@ using PersonalDashboard.Models;
 namespace PersonalDashboard.Migrations
 {
     [DbContext(typeof(PersonalDashboardContext))]
-    [Migration("20241222052831_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20241222061638_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

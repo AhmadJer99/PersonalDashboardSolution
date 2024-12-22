@@ -6,6 +6,7 @@ using System.Web.Routing;
 using PersonalDashboard.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
+using System.IdentityModel;
 
 namespace PersonalDashboard
 {
@@ -20,12 +21,11 @@ namespace PersonalDashboard
             services.AddDbContext<PersonalDashboardContext>(options =>
                 options.UseSqlServer(ConfigurationManager.ConnectionStrings["Default"].ConnectionString));
 
+            ServiceProvider = services.BuildServiceProvider();
 
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            ServiceProvider = services.BuildServiceProvider();
         }
     }
 }
