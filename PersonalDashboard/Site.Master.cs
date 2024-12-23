@@ -16,6 +16,7 @@ namespace PersonalDashboard
             }
             else
             {
+                GridViewPage.Visible = false;
                 LoginPage.Visible = true;
                 welcomeLabel.Visible = false;
                 LogoutBtn.Visible = false;

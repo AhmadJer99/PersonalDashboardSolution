@@ -33,5 +33,97 @@ namespace PersonalDashboard
             GridView1.PageIndex = e.NewPageIndex;
             BindGridView();
         }
+        protected void OnSorting(object sender, GridViewSortEventArgs e)
+        {
+            using (var scope = Global.ServiceProvider.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<PersonalDashboardContext>();
+
+                var tasks = context.Tasks.AsQueryable();
+
+                switch (e.SortExpression)
+                {
+                    case "Priority":
+                        tasks = tasks.OrderBy(t => t.Priority);
+                        break;
+                    case "DueDate":
+                        tasks = tasks.OrderBy(t => t.DueDate);
+                        break;
+                    case "Status":
+                        tasks = tasks.OrderBy(t => t.status);
+                        break;
+                    default:
+                        tasks = tasks.OrderBy(t => t.Title);
+                        break;
+                }
+
+                // Bind tasks to GridView
+                GridView1.DataSource = tasks.ToList();
+                GridView1.DataBind();
+            }
+        }
+        protected void StatusButton_Click(object sender, EventArgs e)
+        {
+            Button statusButton = (Button)sender;
+            int taskId = Convert.ToInt32(statusButton.CommandArgument);
+
+            using (var scope = Global.ServiceProvider.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<PersonalDashboardContext>();
+                var task = context.Tasks.FirstOrDefault(t => t.TaskId == taskId);
+
+                if (task != null)
+                {
+                    // Toggle status (you can customize the status change logic as needed)
+                    if (task.status == "Pending")
+                        task.status = "In Progress";
+                    else if (task.status == "In Progress")
+                        task.status = "Done";
+                    else
+                        task.status = "Pending";
+
+                    context.SaveChanges();
+                    BindGridView(); // Rebind GridView to reflect status change
+                }
+            }
+        }
+        protected void SaveTaskButton_Click(object sender, EventArgs e)
+        {
+            // Retrieve the input values using server-side controls
+            string title = TaskTitleTextBox.Text;
+            string description = TaskDescriptionTextBox.Text;
+            string priority = TaskPriorityDropDown.SelectedValue;
+
+            // Validate and parse the due date
+            DateTime dueDate;
+            dueDate = DateTime.Parse(TaskDueDateTextBox.Text);
+            if (dueDate < DateTime.Now)
+            {
+                // non logical date , the task due date can't be before today
+                return;
+            }
+
+            // Save the task to the database
+            using (var scope = Global.ServiceProvider.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<PersonalDashboardContext>();
+                var newTask = new Task
+                {
+                    Title = title,
+                    Description = description,
+                    Priority = priority,
+                    DueDate = dueDate,
+                    status = "Pending" // Default status
+                };
+
+                context.Tasks.Add(newTask);
+                context.SaveChanges();
+            }
+
+            // Refresh the GridView to display the new task
+            BindGridView();
+        }
+
+
     }
 }
