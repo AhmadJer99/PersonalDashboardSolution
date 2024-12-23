@@ -13,6 +13,7 @@ namespace PersonalDashboard
             if (!IsPostBack)
             {
                 BindGridView();
+                DueDateCompareValidator.ValueToCompare = DateTime.Now.ToString("yyyy-MM-dd");
             }
         }
         protected void BindGridView()
@@ -28,11 +29,13 @@ namespace PersonalDashboard
                 GridView1.DataBind();
             }
         }
+
         protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
             BindGridView();
         }
+
         protected void OnSorting(object sender, GridViewSortEventArgs e)
         {
             using (var scope = Global.ServiceProvider.CreateScope())
@@ -62,6 +65,7 @@ namespace PersonalDashboard
                 GridView1.DataBind();
             }
         }
+
         protected void StatusButton_Click(object sender, EventArgs e)
         {
             Button statusButton = (Button)sender;
@@ -87,21 +91,14 @@ namespace PersonalDashboard
                 }
             }
         }
+
         protected void SaveTaskButton_Click(object sender, EventArgs e)
         {
             // Retrieve the input values using server-side controls
             string title = TaskTitleTextBox.Text;
             string description = TaskDescriptionTextBox.Text;
             string priority = TaskPriorityDropDown.SelectedValue;
-
-            // Validate and parse the due date
-            DateTime dueDate;
-            dueDate = DateTime.Parse(TaskDueDateTextBox.Text);
-            if (dueDate < DateTime.Now)
-            {
-                // non logical date , the task due date can't be before today
-                return;
-            }
+            DateTime dueDate = DateTime.Parse(TaskDueDateTextBox.Text);
 
             // Save the task to the database
             using (var scope = Global.ServiceProvider.CreateScope())
@@ -113,17 +110,14 @@ namespace PersonalDashboard
                     Description = description,
                     Priority = priority,
                     DueDate = dueDate,
-                    status = "Pending" // Default status
+                    status = "Pending" 
                 };
 
                 context.Tasks.Add(newTask);
                 context.SaveChanges();
             }
 
-            // Refresh the GridView to display the new task
             BindGridView();
         }
-
-
     }
 }

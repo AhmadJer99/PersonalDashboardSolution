@@ -27,7 +27,7 @@
     </button>
 
     <!-- Modal -->
-     <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="addTaskModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="addTaskModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <!-- Modal Header -->
@@ -53,7 +53,17 @@
                     <asp:RequiredFieldValidator ID="PriorityValidator" runat="server" ControlToValidate="TaskPriorityDropDown" InitialValue="" ErrorMessage="Priority is required" CssClass="text-danger" ValidationGroup="AddTaskGroup" />
 
                     <asp:TextBox ID="TaskDueDateTextBox" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="DueDateValidator" runat="server" ControlToValidate="TaskDueDateTextBox" ErrorMessage="Due Date is required" CssClass="text-danger" ValidationGroup="AddTaskGroup" />
+                    <asp:RequiredFieldValidator ID="DueDateValidator" runat="server"
+                        ControlToValidate="TaskDueDateTextBox"
+                        ErrorMessage="Due Date is required"
+                        CssClass="text-danger" ValidationGroup="AddTaskGroup" />
+                    <asp:CompareValidator ID="DueDateCompareValidator" runat="server"
+                        ControlToValidate="TaskDueDateTextBox"
+                        Operator="GreaterThan"
+                        ValueToCompare=""
+                        Type="Date"
+                        ErrorMessage="Due Date must be in the future"
+                        CssClass="text-danger" ValidationGroup="AddTaskGroup" />
                 </div>
 
                 <!-- Modal Footer -->

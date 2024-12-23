@@ -33,6 +33,15 @@ namespace PersonalDashboard
         protected global::System.Web.UI.WebControls.TextBox userNameBox;
 
         /// <summary>
+        /// UsernameValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator UsernameValidator;
+
+        /// <summary>
         /// passwordBox control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace PersonalDashboard
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox passwordBox;
+
+        /// <summary>
+        /// PasswordValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator PasswordValidator;
 
         /// <summary>
         /// LoginBtn control.
