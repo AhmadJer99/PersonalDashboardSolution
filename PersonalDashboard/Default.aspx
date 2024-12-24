@@ -1,44 +1,63 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="PersonalDashboard._Default" %>
+﻿<%@ Page Title="Personal Dashboard" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="PersonalDashboard._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
     <main>
-        <section class="row" aria-labelledby="aspnetTitle">
-            <h1 id="aspnetTitle">ASP.NET</h1>
-            <p class="lead">test is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-            <p><a href="http://www.asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
+        <!-- Welcome Section -->
+        <section class="text-center my-4">
+            <h1>Welcome to Your Personal Dashboard</h1>
+            <p class="lead">Stay organized, track your progress, and manage your tasks all in one place.</p>
         </section>
 
+        <!-- Dashboard Widgets -->
         <div class="row">
-            <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-                <h2 id="gettingStartedTitle">Getting started</h2>
-                <p>
-                    ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-                A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-                </p>
-                <p>
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-                </p>
+            <!-- Calendar Widget -->
+            <section class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h2>Calendar</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>Quick access to your schedule and upcoming events.</p>
+                        <asp:Button ID="ViewCalendarButton" runat="server" CssClass="btn btn-primary" Text="View Calendar" PostBackUrl="~/Calendar.aspx" />
+                    </div>
+                </div>
             </section>
-            <section class="col-md-4" aria-labelledby="librariesTitle">
-                <h2 id="librariesTitle">Get more libraries</h2>
-                <p>
-                    NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-                </p>
-                <p>
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-                </p>
+
+            <!-- Task Manager -->
+            <section class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h2>Tasks</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>Manage your to-do list and track progress.</p>
+                        <asp:Button ID="ViewTasksButton" runat="server" CssClass="btn btn-primary" Text="View Tasks" PostBackUrl="~/Tasks.aspx" />
+                    </div>
+                </div>
             </section>
-            <section class="col-md-4" aria-labelledby="hostingTitle">
-                <h2 id="hostingTitle">Web Hosting</h2>
-                <p>
-                    You can easily find a web hosting company that offers the right mix of features and price for your applications.
-                </p>
-                <p>
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-                </p>
+
+            <!-- Statistics Overview -->
+            <section class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h2>Statistics</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>View analytics and track your achievements.</p>
+                        <asp:Button ID="ViewStatsButton" runat="server" CssClass="btn btn-primary" Text="View Statistics" PostBackUrl="~/Statistics.aspx" />
+                    </div>
+                </div>
             </section>
         </div>
-    </main>
 
+        <!-- Quick Links Section -->
+        <section class="text-center mt-5">
+            <h2>Quick Links</h2>
+            <div class="btn-group mt-3" role="group">
+                <asp:Button ID="Link1" runat="server" CssClass="btn btn-secondary" Text="Notes" PostBackUrl="~/Notes.aspx" />
+                <asp:Button ID="Link2" runat="server" CssClass="btn btn-secondary" Text="Settings" PostBackUrl="~/Settings.aspx" />
+                <asp:Button ID="Link3" runat="server" CssClass="btn btn-secondary" Text="Profile" PostBackUrl="~/Profile.aspx" />
+            </div>
+        </section>
+    </main>
 </asp:Content>
