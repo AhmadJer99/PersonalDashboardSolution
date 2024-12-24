@@ -1,4 +1,5 @@
-﻿<%@  Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="PersonalDashboard.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="PersonalDashboard.SiteMaster" %>
+
 <link href="~/StyleSheet1.css" rel="stylesheet" type="text/css" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -15,12 +16,27 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
+
+
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
-<body>
+<body id="MainBody" runat="server">
     <form runat="server">
+
+        <div id="cookieConsentBanner" runat="server" class="alert alert-info text-center" style="display: none;">
+            <span>We use cookies to improve your experience. By continuing to use our site, you consent to our cookies.</span>
+            <asp:Button ID="AcceptCookiesButton" runat="server" CssClass="btn btn-primary btn-sm ms-2" Text="Accept" OnClick="AcceptCookiesButton_Click" />
+            <asp:Button ID="DeclineCookiesButton" runat="server" CssClass="btn btn-danger btn-sm ms-2" Text="Decline" OnClick="DeclineCookiesButton_Click" />
+        </div>
+
+
+        <div class="theme-selector text-center mt-3">
+            <asp:Button ID="LightThemeButton" runat="server" CssClass="btn btn-light" Text="Light Theme" OnClick="LightThemeButton_Click" />
+            <asp:Button ID="DarkThemeButton" runat="server" CssClass="btn btn-dark" Text="Dark Theme" OnClick="DarkThemeButton_Click" />
+        </div>
+
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -42,6 +58,7 @@
 
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
             <div class="container">
+
                 <a class="navbar-brand" runat="server" href="~/">Application name</a>
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -54,10 +71,10 @@
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>
                         <li class="nav-item"><a id="GridViewPage" class="nav-link" runat="server" href="~/GridViewPage">Tasks</a></li>
                         <li class="nav-item"><a id="LoginPage" class="nav-link" runat="server" href="~/Login">Login</a></li>
-                        
+
                     </ul>
                     <asp:Label ID="welcomeLabel" runat="server" CssClass="text-white"></asp:Label>
-                    <asp:button ID="LogoutBtn" ForeColor="CadetBlue"  BorderColor="Transparent" BackColor="Transparent" runat="server" onclick="BtnLogout_Clicked" text="(Logout)"/>
+                    <asp:Button ID="LogoutBtn" ForeColor="CadetBlue" BorderColor="Transparent" BackColor="Transparent" runat="server" OnClick="BtnLogout_Clicked" Text="(Logout)" />
                 </div>
             </div>
         </nav>

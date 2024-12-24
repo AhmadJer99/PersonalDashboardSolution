@@ -60,12 +60,21 @@ namespace PersonalDashboard
         protected global::System.Web.UI.WebControls.RequiredFieldValidator PasswordValidator;
 
         /// <summary>
-        /// LoginBtn control.
+        /// rememberMeCheckbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button LoginBtn;
+        protected global::System.Web.UI.WebControls.CheckBox rememberMeCheckbox;
+
+        /// <summary>
+        /// BtnLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnLogin;
     }
 }

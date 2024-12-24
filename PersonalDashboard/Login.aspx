@@ -8,13 +8,15 @@
     <label>Username </label>
     <br />
     <asp:TextBox runat="server" ID="userNameBox" />
-    <asp:RequiredFieldValidator ID="UsernameValidator" runat="server" ControlToValidate="userNameBox" ErrorMessage="Username is required" CssClass="text-danger"/>
+    <asp:RequiredFieldValidator ID="UsernameValidator" runat="server" ControlToValidate="userNameBox" ErrorMessage="Username is required" CssClass="text-danger" />
     <br />
     <br />
     <label>Password </label>
     <br />
     <asp:TextBox runat="server" type="password" ID="passwordBox" />
-    <asp:RequiredFieldValidator ID="PasswordValidator" runat="server" ControlToValidate="passwordBox" ErrorMessage="Password is required" CssClass="text-danger"/><br />
+    <asp:RequiredFieldValidator ID="PasswordValidator" runat="server" ControlToValidate="passwordBox" ErrorMessage="Password is required" CssClass="text-danger" /><br />
+    <asp:CheckBox ID="rememberMeCheckbox" runat="server" Text="Remember Me" /><br />
     <br />
-    <asp:Button ID="LoginBtn" runat="server" OnClick="BtnLogin_Clicked" Text="Login" />
+    <asp:Button ID="BtnLogin" runat="server" Text="Login" OnClick="BtnLogin_Clicked" />
+
 </asp:Content>
