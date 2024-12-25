@@ -57,4 +57,63 @@ body.bg-light {
     background-color: #ffffff;
     color: #000000;
 }
+/* Calendar Styles */
+#Calendar1 {
+    background-color: #FFFFCC;
+    border-color: #FFCC66;
+    border-width: 1px;
+    font-family: Verdana;
+    font-size: 8pt;
+    color: #663399;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
 
+    #Calendar1 .SelectedDayStyle {
+        background-color: #CCCCFF;
+        font-weight: bold;
+    }
+
+    #Calendar1 .SelectorStyle {
+        background-color: #FFCC66;
+    }
+
+    #Calendar1 .TodayDayStyle {
+        background-color: #0589b5;
+        color: white;
+    }
+
+    #Calendar1 .OtherMonthDayStyle {
+        color: #0589b5;
+    }
+
+    #Calendar1 .NextPrevStyle {
+        font-size: 9pt;
+        color: #FFFFCC;
+    }
+
+    #Calendar1 .DayHeaderStyle {
+        background-color: #FFCC66;
+        font-weight: bold;
+        height: 1px;
+    }
+
+    #Calendar1 .TitleStyle {
+        background-color: #990000;
+        font-weight: bold;
+        font-size: 9pt;
+        color: #FFFFCC;
+    }
+
+    #Calendar1 .DayStyle {
+        height: 50px;
+        width: 150px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #Calendar1 .OtherMonthDayStyle {
+        background-color: AliceBlue;
+    }
+
+}

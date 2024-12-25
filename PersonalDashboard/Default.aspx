@@ -31,7 +31,7 @@
                     </div>
                     <div class="card-body">
                         <p>Manage your to-do list and track progress.</p>
-                        <asp:Button ID="ViewTasksButton" runat="server" CssClass="btn btn-primary" Text="View Tasks" PostBackUrl="~/Tasks.aspx" />
+                        <asp:Button ID="ViewTasksButton" runat="server" CssClass="btn btn-primary" Text="View Tasks" PostBackUrl="~/GridViewPage" />
                     </div>
                 </div>
             </section>

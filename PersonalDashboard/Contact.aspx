@@ -3,17 +3,21 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main aria-labelledby="title">
         <h2 id="title"><%: Title %>.</h2>
-        <h3>Your contact page.</h3>
-        <address>
-            One Microsoft Way<br />
-            Redmond, WA 98052-6399<br />
-            <abbr title="Phone">P:</abbr>
-            425.555.0100
-        </address>
+        <h3>Contact Us</h3>
+        <p>
+            If you have any questions, feedback, or suggestions about your personal dashboard, feel free to reach out to us. We're here to help!
+        </p>
 
         <address>
-            <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-            <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+            <strong>Support:</strong> <a href="mailto:support@personaldashboard.com">support@personaldashboard.com</a><br />
+            <strong>General Inquiries:</strong> <a href="mailto:info@personaldashboard.com">info@personaldashboard.com</a><br />
         </address>
+
+        <p>You can also follow us on social media for updates and tips:</p>
+        <ul>
+            <li><a href="https://www.facebook.com/PersonalDashboard" target="_blank">Facebook</a></li>
+            <li><a href="https://www.twitter.com/PersonalDashboard" target="_blank">Twitter</a></li>
+            <li><a href="https://www.instagram.com/PersonalDashboard" target="_blank">Instagram</a></li>
+        </ul>
     </main>
 </asp:Content>

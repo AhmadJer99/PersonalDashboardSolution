@@ -36,7 +36,6 @@ namespace PersonalDashboard
             }
             else
             {
-                GridViewPage.Visible = false;
                 LoginPage.Visible = true;
                 welcomeLabel.Visible = false;
                 LogoutBtn.Visible = false;
@@ -62,14 +61,12 @@ namespace PersonalDashboard
 
         protected void LightThemeButton_Click(object sender, EventArgs e)
         {
-            // Save light theme preference in cookie
             SetThemeCookie("light");
             ApplyTheme("light");
         }
 
         protected void DarkThemeButton_Click(object sender, EventArgs e)
         {
-            // Save dark theme preference in cookie
             SetThemeCookie("dark");
             ApplyTheme("dark");
         }
@@ -108,16 +105,13 @@ namespace PersonalDashboard
             {
                 HttpCookie themeCookie = new HttpCookie("theme")
                 {
-                    Expires = DateTime.Now.AddDays(-1) // Expire immediately
+                    Expires = DateTime.Now.AddDays(-1)
                 };
                 Response.Cookies.Add(themeCookie);
             }
 
-            // Hide the banner
             cookieConsentBanner.Style["display"] = "none";
 
-            // Optionally redirect or display a message
-            //Response.Redirect("DeclineAcknowledgmentPage.aspx");
         }
 
     }
