@@ -12,7 +12,6 @@ namespace PersonalDashboard
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Set initial calendar properties
             Calendar1.Caption = "Tasks Calender";
             Calendar1.FirstDayOfWeek = FirstDayOfWeek.Sunday;
             Calendar1.NextPrevFormat = NextPrevFormat.ShortMonth;
@@ -30,7 +29,7 @@ namespace PersonalDashboard
         {
             DateTime selectedDate = Calendar1.SelectedDate;
             using (var scope = Global.ServiceProvider.CreateScope())
-            // Query the Task table to find tasks with the selected date as the DueDate
+
             using (var context = scope.ServiceProvider.GetRequiredService<PersonalDashboardContext>()) // Replace with your actual DbContext
             {
                 var task = context.Tasks.FirstOrDefault(t => t.DueDate.Date == selectedDate.Date);
@@ -58,12 +57,11 @@ namespace PersonalDashboard
 
             using (var context = scope.ServiceProvider.GetRequiredService<PersonalDashboardContext>()) // Replace with your actual DbContext
             {
-                // Query the Task table to see if any tasks are due on this day
                 var task = context.Tasks.FirstOrDefault(t => t.DueDate.Date == currentDate);
 
                 if (task != null)
                 {
-                    // Change the background color of the day to red if a task is due
+
                     e.Cell.BackColor = System.Drawing.Color.DarkRed;
                     e.Cell.ForeColor = System.Drawing.Color.White;
                     e.Cell.Font.Bold = true;
